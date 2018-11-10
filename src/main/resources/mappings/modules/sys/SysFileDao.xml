@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.znbl.modules.sys.dao.SysFileDao">
+    
+	<sql id="sysFileColumns">
+		a.id AS "id",
+		a.upload_user_id AS "uploadUserId",
+		a.file_type_id AS "fileTypeId",
+		a.file_url AS "fileUrl",
+		a.status AS "status",
+		a.del_flag AS "delFlag",
+		a.create_by AS "createBy.id",
+		a.create_date AS "createDate",
+		a.update_by AS "updateBy.id",
+		a.update_date AS "updateDate"
+	</sql>
+	
+	<sql id="sysFileJoins">
+	</sql>
+    
+	<select id="get" resultType="SysFile">
+		SELECT 
+			<include refid="sysFileColumns"/>
+		FROM sys_file a
+		<include refid="sysFileJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" resultType="SysFile">
+		SELECT 
+			<include refid="sysFileColumns"/>
+		FROM sys_file a
+		<include refid="sysFileJoins"/>
+		<where>
+			a.del_flag = #{DEL_FLAG_NORMAL}
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="SysFile">
+		SELECT 
+			<include refid="sysFileColumns"/>
+		FROM sys_file a
+		<include refid="sysFileJoins"/>
+		<where>
+			a.del_flag = #{DEL_FLAG_NORMAL}
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO sys_file(
+			id,
+			upload_user_id,
+			file_type_id,
+			file_url,
+			status,
+			del_flag,
+			create_by,
+			create_date,
+			update_by,
+			update_date
+		) VALUES (
+			#{id},
+			#{uploadUserId},
+			#{fileTypeId},
+			#{fileUrl},
+			#{status},
+			#{delFlag},
+			#{createBy.id},
+			#{createDate},
+			#{updateBy.id},
+			#{updateDate}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE sys_file SET 	
+			upload_user_id = #{uploadUserId},
+			file_type_id = #{fileTypeId},
+			file_url = #{fileUrl},
+			status = #{status},
+			update_by = #{updateBy.id},
+			update_date = #{updateDate}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		UPDATE sys_file SET 
+			del_flag = #{DEL_FLAG_DELETE}
+		WHERE id = #{id}
+	</update>
+	
+</mapper>

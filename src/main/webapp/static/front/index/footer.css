@@ -1,0 +1,60 @@
+/*页脚*/
+#footer{
+    overflow: hidden;
+    width: 100%;
+    height: 150px;
+    margin: 10px auto;
+    background-color: rgb(68,138,202);
+}
+.f-content{
+    width: 100%;
+    overflow: hidden;
+    margin: 0 auto;
+    background-color: rgb(68,138,202);
+}
+.f-left{
+    width: 21%;
+    height:130px;
+    margin: 10px 20px ;
+    /*background-color: #00f5ff;*/
+    background-color: rgb(68,138,202);
+
+    float: left;
+}
+.f-left h3{
+    color: #ffffff;
+}
+.f-left ul li{
+    font-size: 14px;
+    text-indent: 20px;
+    list-style: none;
+}
+.f-left ul li a{
+    color: rgb(196,196,196);
+}.f-left ul li a:hover{
+     text-decoration: underline;
+ }
+
+.split-line3{
+    width: 1px;
+    height:130px;
+    float: left;
+    margin-top: 10px;
+    background-color: rgb(170,170,170);
+}
+.f-center{
+    width: 43%;
+    height:130px;
+    margin: 10px 10px ;
+    /*background-color: #00f5ff;*/
+    background-color: rgb(68,138,202);
+    float: left;
+}
+.f-right{
+    width: 23%;
+    height:130px;
+    margin: 11px 10px;
+    /*background-color: #00f5ff;*/
+    background-color: rgb(68,138,202);
+    float: left;
+}

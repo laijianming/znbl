@@ -1,0 +1,326 @@
+body{
+	position: relative;
+	padding: 0px;
+	margin: 0px;
+	width: 1920px;
+	height: 955px;
+	background-image: url("../image/backgroung.png");
+}
+.header{
+	filter:alpha(opacity=30.2);
+	-moz-opacity:0.302;
+	-khtml-opacity: 0.302;
+	opacity: 0.302;
+	position:relative;
+  	left: 1px;
+  	width: 1919px;
+  	height: 88px;
+  	z-index: 27;
+  	background-color: rgb(41,101,51);
+}
+
+.header img{
+	top: 24px;
+	left: 60px;
+	position: relative;
+}
+
+.main{
+	width: 1920px;
+	height:805px;
+}
+
+.footer{
+	width: 1920;
+	height: 60px;
+	background-color: rgba(255,255,255,0.302);
+	position: static;
+	z-index: 19;
+}
+
+.footer span{
+  font-size: 33.333px;
+  font-family: "Microsoft YaHei";
+  color: rgb(252, 252, 252);
+  line-height: 1.2;
+  text-align: left;
+  position: relative;
+  left: 816px;
+  top: 12px;
+  z-index: 20;
+}
+
+@media \0screen\,screen\9 {/* 只支持IE6、7、8 */
+  .footer{
+    background-color:#000000;
+    filter:Alpha(opacity=30.2);
+    position:static; /* IE6、7、8只能设置position:static(默认属性) ，否则会导致子元素继承Alpha值 */
+    *zoom:1; /* 激活IE6、7的haslayout属性，让它读懂Alpha */
+  }
+  .footer span{
+    position: relative;/* 设置子元素为相对定位，可让子元素不继承Alpha值 */
+  }  
+}
+
+.login-area{
+  position: relative;
+  width: 628px;
+  height: 639px;
+  left: 1114px;
+  top: 87px;
+}
+
+.login-area-head{
+  width: 628px;
+  height: 85px;
+  filter:alpha(opacity=20);
+  -moz-opacity:0.2;
+  -khtml-opacity: 0.2;
+  opacity: 0.2;
+  /*background-color: rgba(199,209,192,0.2);*/
+  background-color: rgb(199,209,192);
+  z-index: 8;
+}
+
+.login-area-body{
+  width: 628px;
+  height: 554px;
+  filter:alpha(opacity=65);
+  -moz-opacity:0.65;
+  -khtml-opacity: 0.65;
+  opacity: 0.65;
+  /*background-color: rgba(200,202,200,0.6);*/
+  background-color: rgb(200,202,200);
+}
+
+.login-area-text{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 628px;
+  height: 639px;
+}
+
+.login-area-text .user-login{
+  display: block;
+  text-align: center;
+  font-size: 41.667px;
+  font-family: "Microsoft YaHei";
+  color: rgb(253, 252, 251);
+  line-height: 1.8;
+  z-index: 16;
+}
+
+.input-username{
+  position: relative;
+  left: 88px;
+  top: 60px;
+  width: 470px;
+  height: 54px;
+  padding:7px 10px 20px 10px;
+  border: 1px solid #000000;
+  background-color: #fff;
+}
+
+.input-username input{
+  width: 400px;
+  height: 48px;
+  padding-left: 5px;
+  border: none;
+  position: relative;
+  top: -17px;
+  font-size:25px;
+}
+
+.input-password{
+  position: relative;
+  left: 88px;
+  top: 100px;
+  width: 470px;
+  height: 54px;
+  background-color: #fff;
+  border: 1px solid #000000;
+  padding:7px 10px 20px 10px;
+}
+
+.input-password input{
+  width: 400px;
+  height: 48px;
+  position: relative;
+  padding-left: 5px;
+  left: 60px;
+  top: -61px;
+  font-size:25px;
+  border: none;
+}
+
+.input-code{
+  display: inline-block;
+  position: relative;
+  left: 88px;
+  top: 140px;
+  width: 270px;
+  height: 83px;
+  background-color: #fff;
+  border: 1px solid #000000;
+  /*padding:7px 10px 20px 10px;*/
+  padding:0;
+}
+
+.code{
+  background-image: url("../image/refrect.png");
+  font-family: Arial;
+  font-style: italic;
+  color: #F00;
+ /* border: 0px none;
+  padding: 2px 3px;*/
+  letter-spacing: 3px;
+  font-weight: bolder;
+}
+
+.refresh{
+  position: relative;
+  cursor:pointer;
+  left: 88px;
+  top: 145px;
+}
+
+.input-code .code{
+  width: 270px;
+  height: 83px;
+  padding:0px;
+  font-size:25px;
+  text-align: center;
+  border: none;
+}
+
+.input-code-text {
+  display: inline-block;
+  height: 54px;
+  width: 156px;
+  position: relative;
+  left: 90px;
+  top: 138.5px;
+  background-color: #fff;
+  border: 1px solid #000000;
+  padding:12px 10px 15px 10px;
+}
+
+.input-code-text .code-text{
+  width: 145px;
+  height: 50px;
+  position: relative;
+  padding-left: 5px;
+  font-size:25px;
+  border: none;
+}
+
+.remember-forget{
+  position: relative;
+  left: 88px;
+  height: 35px;
+  top: 148px;
+}
+.remember{
+  margin-left: 39px;
+}
+
+
+.check-box-div{
+  position: absolute;
+  top: 5px;
+  display: inline-block;
+  border: black 1px solid;
+  width: 30px;
+  height: 30px;
+  background:#fff;
+  margin-right: 5px;
+}
+
+.remember,.forget a:link, a:visited{
+  text-decoration: none;
+  font-size: 33.333px;
+  font-family: "Microsoft YaHei";
+  color: rgb(253, 252, 251);
+  line-height: 1.2;
+}
+
+.forget{
+  margin-left: 100px;
+}
+
+.login-btn{
+  position: relative;
+  top: 165px;
+  left: 88px;
+  width: 488px;
+  height: 87px;
+  border: 1px solid black;
+  background-image: url(../image/login-btn.png);
+  font-size: 41.667px;
+  font-family: "Microsoft YaHei";
+  color: rgb(253, 255, 252);
+  box-shadow: 5px 5px 3px #646d5c;
+}
+
+.check-box-div label {
+    cursor: pointer;
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    top: 0;
+    left: 0;
+    background: #eee;
+    border:1px solid #ddd;
+}
+/**
+ * Display the tick inside the checkbox
+ */
+.check-box-div label:after {
+    opacity: 0;
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 8px;
+    background: transparent;
+    top: 6px;
+    left: 7px;
+    border: 3px solid #333;
+    border-top: none;
+    border-right: none;
+ 
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+/**
+ * Create the hover event of the tick
+ */
+.check-box-div label:hover::after {
+    opacity: 0.3;
+}
+ 
+/**
+ * Create the checkbox state for the tick
+ */
+.check-box-div input[type=checkbox]:checked + label:after {
+    opacity: 1;
+}
+
+/*错误信息*/
+#username-error,#password-error{
+  display: inline-block;
+  position: relative;
+  font-size: 18px;
+   color: red;
+}
+
+#username-error{
+  top: 12px;
+}
+#password-error{
+  top: -35px;
+}

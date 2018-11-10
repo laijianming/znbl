@@ -1,0 +1,336 @@
+body{
+    background-color: rgb(238,238,238);
+}
+.head{
+    background-color: #ffffff;
+}
+/*导航栏*/
+.navigation{
+	position: fixed;
+    background-color: rgba(0, 0, 0, 0.86);
+    width: 100%;
+    height: 10%;
+    z-index: 999;
+    overflow: hidden;
+}
+.navigation:hover{
+	overflow: visible;
+}
+.navigation>img{
+	float: left;
+	width: 20%;
+}
+.navigation>span{
+	line-height: 3;
+	font-size: 1.8em;
+	font-family: YouYuan;
+	margin-right: 1%;
+	float: right;
+	width:10%;
+}
+.navigation>span a{
+	/*border-radius: 15%/20%;*/
+	color: white;
+	margin: 0 5px;
+	padding: 0px;
+	text-decoration: none;
+	border: none;
+	text-align: center;
+	width: 100%;
+}
+.navigation>span a:hover{
+	background-color: rgba(255, 255, 255, 0.4);
+}
+
+.head .layout ul li a{
+    color: rgb(146,146,146);
+}
+.container ul li a:hover{
+    color:red;
+    text-decoration: underline;
+}
+.head .layout ul li a:hover{
+    color:rgb(92,198,210);
+}
+.login-form{
+	min-width:150px;
+}
+
+.username{
+	overflow:hidden;
+	/*width:10%;*/
+}
+.username>a{
+	display: block;
+    text-align: center;
+    transition:all 0.5s ease-in;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+}
+
+.username>ul{
+	display: block;
+    position: relative;
+	transition:all 1.2s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+	list-style-type: none;
+	left: 195px;
+	background: white;
+    margin: 0;
+    padding: 0;
+
+}
+.username>ul a{
+	display: block;
+	color: black;
+	text-align: center;
+}
+.username:hover>ul{
+	left:0;
+}
+.username:hover>ul li{
+	padding:0;
+}
+.username:hover>a{
+	background-color:rgba(255, 255, 255, 0.4);
+}
+@-moz-document url-prefix() { 
+.news .panel-body ul li span{
+line-height:1px;
+transform:translateY(-9px);
+}
+}
+#search .drop--menu{
+	list-style:none;
+	padding-left:0;
+	position:absolute;
+	display:none;
+	background-color:white;
+	border:1px solid #0ae;
+	border-top:none;
+	border-radius:0 0 4px 4px;
+	width:69px;
+	z-index:10;
+}
+#search .drop--menu li{
+	text-align:center;
+	cursor:pointer;
+	line-height:34px;
+	height:34px;
+}
+#search .drop--menu li:hover{
+	background-color:rgb(238,238,238);
+	
+}
+
+
+
+.textoverflow{
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    height:26px;
+}
+.panel-body ul{
+    padding-left: 5px;
+}
+ .panel-body ul li:before{
+    content:"• ";
+}
+ .title-word{
+     color:rgb(82,188,200);
+     /*font-size: 250%;*/
+     line-height: 60px;
+ }
+ .title-more{
+     padding-left: 15px;
+     color:rgb(82,188,200);
+     /*font-size: 150%;*/
+     line-height: 60px;
+ }
+ 
+ .knowledge a:hover{
+     color:rgb(82,188,200);
+ }
+ .bg-white{
+     width: 90%;
+     margin-left: 5%;
+     margin-right: 5%;
+     border-radius: 15px;
+ }
+.knowledge_left ul .a,.knowledge_center ul .a,.knowledge_right ul .a,.torritory_left ul .a,.torritory_center ul .a{
+	overflow: hidden;
+    white-space: nowrap;
+    padding-right:10px;
+    display: block;
+    text-overflow: ellipsis;
+}
+ 
+
+@media (max-width: 999px) {
+    .noborder{
+        border:none;
+    }
+    .bg-white{
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .titleimg{
+        width: 20%;
+    }
+    .register{
+	padding-top: 258px;
+ }
+    
+}
+@media (max-width: 760px) {
+    .interact .line .noborder{
+        border: none;
+    }
+    .bg-white{
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .titleimg{
+        width: 35%;
+    }
+    .titlehr{
+        width: 45%;
+    }
+     .layout .nav .dropdown .dropdown-menu{
+position:absolute;
+left:50px;
+top:-70px;
+}
+}
+@media (max-width: 388px) {
+    .knowledge .titleimg{
+        width: 43%
+    }
+    .title-more{
+        padding-left: 10px;
+    }
+}
+@media (max-width: 374px) {
+    .campus .container .button{
+        /*float: left;*/
+        margin-left:1px;
+        margin-right: 1px;
+    }
+    .campus .line .text-center img{
+        width: 120px;
+    }
+    .titleimg{
+        width: 40%;
+    }
+    .footer .container h1{
+    font-size:15px;
+    }
+    .footer .container ul li{
+    text-indent:0px;
+    font-size:12px;
+    }
+    .footer .container ul li ul{
+    text-indent:0px;
+    padding-left:10px;
+    }
+}
+#friendly_link .panel .panel-body{
+	height:230px;
+	overflow:hidden;
+}
+#friendly_link .panel .panel-body ul li{
+	list-style:none;
+}
+#friendly_link .panel .panel-body ul li::before{
+	content:'';
+	
+}
+#friendly_link tr:nth-of-type(1) th a::before{
+	display:inline-block;
+	width:19px;
+	background:url(http://css.kepu.gov.cn/favicon.ico);
+	background-size:19px 19px;
+	content:'';
+	padding-top:15px;
+}
+#friendly_link tr:nth-of-type(2) th a::before{
+	display:inline-block;
+	width:20px;
+	background:url(http://www.kepu.net.cn/images/kepu_logo.jpg) no-repeat;
+	background-position:-3px -4px;
+	background-size:97px 25px;
+	content:'';
+	padding-top:15px;
+}
+.main .container{
+	min-height:500px;
+}
+
+.changeborder:hover{
+    background-color: #00b6ff;
+    color:blue;
+}
+.footer{
+	float:left;
+	width: 100%;
+}
+.footer .container h1{
+    color:#ffffff;
+}
+.footer .container .float-right{
+	width: 50%;
+	position:relative;
+}
+.footer .container .float-right span{
+	position:absolute;
+	color:rgb(228,228,228);
+	
+	
+}
+.footer .container ul li a{
+    color: rgb(228, 228, 228);
+}
+.footer .container ul{
+	list-style:none;
+}
+@media screen and (min-width:500px){
+	text-indent:10px;
+}
+
+.register .main{
+	margin:0 auto;
+	border-top:1px solid rgb(82,188,200);
+	padding-top:15px;
+	width:50%;
+	height:300px;
+}
+.register .main .input-help{
+	display:inline-block;
+	line-height:34px;
+	
+}
+.register .main .input-help ul{
+	list-style:none;
+	text-indent:-1em;
+	
+}
+
+@media screen  and (min-width: 999px){
+	.register{
+	padding-top: 114px;
+ }
+}
+
+@media screen  and (min-width: 1800px){
+	.register{
+	padding-top: 177px;
+	}
+}
+
+.validateCode_box{
+	padding-left: 260px;
+}
+

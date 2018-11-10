@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.znbl.modules.sys.dao.RoleOfficeDao">
+    
+	<sql id="roleOfficeColumns">
+		a.role_id AS "roleId",
+		a.office_id AS "officeId"
+	</sql>
+	
+	<sql id="roleOfficeJoins">
+	</sql>
+    
+	<select id="get" resultType="RoleOffice">
+		SELECT 
+			<include refid="roleOfficeColumns"/>
+		FROM sys_role_office a
+		<include refid="roleOfficeJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" resultType="RoleOffice">
+		SELECT 
+			<include refid="roleOfficeColumns"/>
+		FROM sys_role_office a
+		<include refid="roleOfficeJoins"/>
+		<where>
+			
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="RoleOffice">
+		SELECT 
+			<include refid="roleOfficeColumns"/>
+		FROM sys_role_office a
+		<include refid="roleOfficeJoins"/>
+		<where>
+			
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO sys_role_office(
+			role_id,
+			office_id
+		) VALUES (
+			#{roleId},
+			#{officeId}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE sys_role_office SET 	
+			role_id = #{roleId},
+			office_id = #{officeId}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		DELETE FROM sys_role_office
+		WHERE id = #{id}
+	</update>
+	
+</mapper>

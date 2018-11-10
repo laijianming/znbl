@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.znbl.modules.sys.dao.SysMessageDao">
+    
+	<sql id="sysMessageColumns">
+		a.id AS "id",
+		a.message_content AS "messageContent",
+		a.send_user_name AS "sendUserName",
+		a.send_user_mobile AS "sendUserMobile",
+		a.send_user_email AS "sendUserEmail",
+		a.send_time AS "sendTime",
+		a.operation_time AS "operationTime",
+		a.status AS "status",
+		a.type AS "type",
+		a.del_flag AS "delFlag",
+		a.create_by AS "createBy.id",
+		a.create_date AS "createDate",
+		a.update_by AS "updateBy.id",
+		a.update_date AS "updateDate"
+	</sql>
+	
+	<sql id="sysMessageJoins">
+	</sql>
+    
+	<select id="get" resultType="SysMessage">
+		SELECT 
+			<include refid="sysMessageColumns"/>
+		FROM sys_message a
+		<include refid="sysMessageJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" resultType="SysMessage">
+		SELECT 
+			<include refid="sysMessageColumns"/>
+		FROM sys_message a
+		<include refid="sysMessageJoins"/>
+		<where>
+			a.del_flag = #{DEL_FLAG_NORMAL}
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="SysMessage">
+		SELECT 
+			<include refid="sysMessageColumns"/>
+		FROM sys_message a
+		<include refid="sysMessageJoins"/>
+		<where>
+			a.del_flag = #{DEL_FLAG_NORMAL}
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO sys_message(
+			id,
+			message_content,
+			send_user_name,
+			send_user_mobile,
+			send_user_email,
+			send_time,
+			operation_time,
+			status,
+			type,
+			del_flag,
+			create_by,
+			create_date,
+			update_by,
+			update_date
+		) VALUES (
+			#{id},
+			#{messageContent},
+			#{sendUserName},
+			#{sendUserMobile},
+			#{sendUserEmail},
+			#{sendTime},
+			#{operationTime},
+			#{status},
+			#{type},
+			#{delFlag},
+			#{createBy.id},
+			#{createDate},
+			#{updateBy.id},
+			#{updateDate}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE sys_message SET 	
+			message_content = #{messageContent},
+			send_user_name = #{sendUserName},
+			send_user_mobile = #{sendUserMobile},
+			send_user_email = #{sendUserEmail},
+			send_time = #{sendTime},
+			operation_time = #{operationTime},
+			status = #{status},
+			type = #{type},
+			update_by = #{updateBy.id},
+			update_date = #{updateDate}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		UPDATE sys_message SET 
+			del_flag = #{DEL_FLAG_DELETE}
+		WHERE id = #{id}
+	</update>
+	
+</mapper>

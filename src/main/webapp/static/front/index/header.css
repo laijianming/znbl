@@ -1,0 +1,95 @@
+*{
+    padding:0;
+    margin:0;
+    border:0;
+    font-family: 微软雅黑;
+}
+body{
+    background-color: rgb(238,238,238);
+}
+a{ text-decoration: none; }
+/*header样式*/
+#header{
+    height:225px;
+    width: 100%;
+    background-color: cadetblue;
+}
+.main{
+    height:225px;
+    width: 100%;
+    background-color: rgb(154, 255, 178);
+    position: relative;
+    margin: 0 auto 3px;
+}
+.main .image .logo{
+    height:160px;
+    width: 160px;
+    background-color: darkgrey;
+    float: left;
+    margin: 5px 5px;
+}
+.login{
+    font-size: 16px;
+    float: right;
+    margin-right: 3px;
+}
+.nav{
+    height: 55px;
+    width: 100%;
+    /*bottom: 0px;*/
+    float:left;
+    position: absolute;
+    bottom: 0;
+    /*margin-bottom:0px;*/
+    background-color: rgb(37,37,37);
+    margin: 0 auto ;
+}
+.clearfix:after{
+    content:"";
+    display:block;
+    clear:both;
+}
+.clearfix{zoom:1;}
+.nav ul{
+    height:55px;
+    width:100%;
+    margin: 0 auto;
+}
+.nav ul li{
+    height: 55px;
+    width: 155px;
+    float:left;
+    list-style: none;
+    line-height: 55px;
+    text-align: center;
+    text-decoration: none;
+    /*background-color:rgb(0,255,102) ;*/
+    /*border: 1px solid darkgray;*/
+    /*border-bottom: none;*/
+    /*border-right: 1px dashed black;*/
+    /*border-radius: 5px 5px 0 0;*/
+    font-size: 16px;
+    position: relative;
+}
+.nav ul li a{
+    color: rgb(146,146,146);
+    display: block;
+    height: 55px;
+}
+.nav ul li a:hover{
+    color:rgb(92,198,210);
+}
+.nav ul li .subnav{
+    position: absolute;
+}
+.nav ul li {
+    background-color: rgb(37,37,37);
+    border: none;
+	width:14%;
+	left:7%;
+    border-radius:0;
+    z-index: 3;
+}
+.nav ul li .subnav-1 li a:hover{
+
+}

@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.znbl.modules.interest.dao.ComicDao">
+    
+	<sql id="interestComicColumns">
+		a.id AS "id",
+		a.title AS "title",
+		a.type AS "type",
+		a.image AS "image",
+		a.introduction AS "introduction",
+		a.keywords AS "keywords",
+		a.hits AS "hits",
+		a.claim_number AS "claimNumber",
+		a.counterclaim_number AS "counterclaimNumber",
+		a.start_date AS "startDate",
+		a.expire_date AS "expireDate",
+		a.open_flag AS "openFlag",
+		a.create_by AS "createBy.id",
+		a.create_date AS "createDate",
+		a.update_by AS "updateBy.id",
+		a.update_date AS "updateDate",
+		a.remarks AS "remarks",
+		a.del_flag AS "delFlag",
+		u.login_name AS "createByName"
+	</sql>
+	
+	<sql id="interestComicJoins">
+		JOIN sys_user u ON u.id = a.create_by
+	</sql>
+    
+	<select id="get" resultType="Comic">
+		SELECT 
+			<include refid="interestComicColumns"/>
+		FROM zb_interest_comic a
+		<include refid="interestComicJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" resultType="Comic">
+		SELECT 
+			<include refid="interestComicColumns"/>
+		FROM zb_interest_comic a
+		<include refid="interestComicJoins"/>
+		<where>
+			a.del_flag = #{DEL_FLAG_NORMAL}
+			<if test="title != null and title != ''">
+				AND a.title LIKE 
+					<if test="dbName == 'oracle'">'%'||#{title}||'%'</if>
+					<if test="dbName == 'mysql'">CONCAT('%', #{title}, '%')</if>
+			</if>
+			<if test="createBy != null and createBy.id != null and createBy.id != ''">
+				AND a.create_by  = #{createBy.id}
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="Comic">
+		SELECT 
+			<include refid="interestComicColumns"/>
+		FROM zb_interest_comic a
+		<include refid="interestComicJoins"/>
+		<where>
+			a.del_flag = #{DEL_FLAG_NORMAL}
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO zb_interest_comic(
+			id,
+			type,
+			title,
+			image,
+			introduction,
+			keywords,
+			hits,
+			claim_number,
+			counterclaim_number,
+			start_date,
+			expire_date,
+			open_flag,
+			create_by,
+			create_date,
+			update_by,
+			update_date,
+			remarks,
+			del_flag
+		) VALUES (
+			#{id},
+			#{type},
+			#{title},
+			#{image},
+			#{introduction},
+			#{keywords},
+			#{hits},
+			#{claimNumber},
+			#{counterclaimNumber},
+			#{startDate},
+			#{expireDate},
+			#{openFlag},
+			#{createBy.id},
+			#{createDate},
+			#{updateBy.id},
+			#{updateDate},
+			#{remarks},
+			#{delFlag}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE zb_interest_comic SET 
+			type = #{type},	
+			title = #{title},
+			image = #{image},
+			introduction = #{introduction},
+			keywords = #{keywords},
+			hits = #{hits},
+			claim_number = #{claimNumber},
+			counterclaim_number = #{counterclaimNumber},
+			start_date = #{startDate},
+			expire_date = #{expireDate},
+			open_flag = #{openFlag},
+			create_date = #{createDate},
+			update_by = #{updateBy.id},
+			update_date = #{updateDate},
+			remarks = #{remarks},
+			del_flag = #{delFlag}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		UPDATE zb_interest_comic SET 
+			del_flag = #{DEL_FLAG_DELETE}
+		WHERE id = #{id}
+	</update>
+	
+	
+	<update id="updateHitsAddOne">
+		update zb_interest_comic set
+			 hits = hits+1
+		 WHERE id = #{id}
+	</update>
+	
+</mapper>
