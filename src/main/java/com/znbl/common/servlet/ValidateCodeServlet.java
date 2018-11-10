@@ -13,6 +13,7 @@ import java.util.Random;
 
 import javax.imageio.ImageIO;
 import javax.servlet.ServletException;
+import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -50,7 +51,10 @@ public class ValidateCodeServlet extends HttpServlet {
 			throws ServletException, IOException {
 		String validateCode = request.getParameter(VALIDATE_CODE); // AJAX验证，成功返回true
 		if (StringUtils.isNotBlank(validateCode)){
-			response.getOutputStream().print(validate(request, validateCode)?"true":"false");
+			// 关闭流
+			ServletOutputStream out = response.getOutputStream();
+			out.print(validate(request, validateCode)?"true":"false");
+			out.close();
 		}else{
 			this.doPost(request, response);
 		}

@@ -262,12 +262,17 @@
 			<artifactId>sitemesh</artifactId>
 			<version>${sitemesh.version}</version>
 		</dependency>
-		<dependency>
+		<!--
+			整合Spring MVC由于用到jstl，所以假如jstl便签用的jar包，启动tomcat时控制台出现了如下的输出：
+				TLD skipped. URI: http://java.sun.com/jstl/core_rt is already defined
+			standard.jar的作用时，知道这个jar包与jstl.jar一起使用，但是jstl 1.2版本的就不需要这个jar包了，而本人使用的正是jstl 1.2.jar这个jar包，去掉standard.jar文件后重启tomcat就不会再出现上述信息。
+		-->
+		<!--<dependency>
 			<groupId>taglibs</groupId>
 			<artifactId>standard</artifactId>
 			<version>1.1.2</version>
 			<type>jar</type>
-		</dependency>
+		</dependency>-->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
@@ -520,11 +525,12 @@
 		</dependency>
 
 		<!-- 中文分词 -->
-		<dependency>
+		<!-- 报错：错误: 读取D:\IDEA2018\RepMaven\org\wltea\analyzer\2012_u6\analyzer-2012_u6.jar时出错; error in opening zip file -->
+		<!--<dependency>
 			<groupId>org.wltea</groupId>
 			<artifactId>analyzer</artifactId>
 			<version>2012_u6</version>
-		</dependency>
+		</dependency>-->
 		<!-- GENERAL UTILS end -->
 
 		<!-- CKFinder begin -->
